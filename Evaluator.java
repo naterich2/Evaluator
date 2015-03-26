@@ -55,33 +55,28 @@ public class Evaluator{
 					int arg1 = stack.pop();
 					int arg2 = stack.pop();
 					stack.push(arg2+arg1);
-					System.out.println(arg2+arg1);
 				} else if(operator == '-'){
 					int arg1 = stack.pop();
 					int arg2 = stack.pop();
 					stack.push(arg2-arg1);
-					System.out.println(arg2-arg1);
 				} else if(operator == '*'){
 					int arg1 = stack.pop();
 					int arg2 = stack.pop();
 					stack.push(arg2*arg1);
-					System.out.println(arg2*arg1);
 				} else if(operator == '/'){
 					int arg1 = stack.pop();
 					int arg2 = stack.pop();
 					stack.push(arg2/arg1);
-					System.out.println(arg2/arg1);
 				} else {
-					String errormsg = "Not a recognized character";
+					String errormsg = (String) part +"Not a recognized character";
 					throw new IllegalArgumentException(errormsg);
 				}
 			} else if(part instanceof Integer){
 				int number = (Integer) part;
 				stack.push(number);
-				System.out.println(number);
 			} else{
 				System.out.println(part);
-				throw new IllegalArgumentException("Expected char or int.");
+				throw new IllegalArgumentException(" Expected char or int.");
 			}	
 		}
 		if(stack.top.next ==null){
