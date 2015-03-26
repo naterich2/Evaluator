@@ -1,3 +1,4 @@
+
 public class Evaluator{
 	public Evaluator(){
 		super();
@@ -50,35 +51,38 @@ public class Evaluator{
 		for(Object part: parts){
 			if(part instanceof Character){
 				char operator = (Character) part;
-				switch(operator){
-					case '+':
-						int arg1 = stack.pop();
-						int arg2 = stack.pop();
-						stack.push(arg1+arg2);
-						break;
-					case '-':
-						int arg3 = stack.pop();
-						int arg4 = stack.pop();
-						stack.push(arg3-arg4);
-						break;
-					case '*':
-						int arg5 = stack.pop();
-						int arg6 = stack.pop();
-						stack.push(arg5*arg6);
-						break;
-					case '/':
-						int arg7 = stack.pop();
-						int arg8 = stack.pop();
-						stack.push(arg7/arg8);
-						break;
+				if(operator == '+'){
+					int arg1 = stack.pop();
+					int arg2 = stack.pop();
+					stack.push(arg2+arg1);
+					System.out.println(arg2+arg1);
+				} else if(operator == '-'){
+					int arg1 = stack.pop();
+					int arg2 = stack.pop();
+					stack.push(arg2-arg1);
+					System.out.println(arg2-arg1);
+				} else if(operator == '*'){
+					int arg1 = stack.pop();
+					int arg2 = stack.pop();
+					stack.push(arg2*arg1);
+					System.out.println(arg2*arg1);
+				} else if(operator == '/'){
+					int arg1 = stack.pop();
+					int arg2 = stack.pop();
+					stack.push(arg2/arg1);
+					System.out.println(arg2/arg1);
+				} else {
+					String errormsg = "Not a recognized character";
+					throw new IllegalArgumentException(errormsg);
 				}
-
-			} else if( part instanceof Integer){
+			} else if(part instanceof Integer){
 				int number = (Integer) part;
 				stack.push(number);
-
-			} else
+				System.out.println(number);
+			} else{
+				System.out.println(part);
 				throw new IllegalArgumentException("Expected char or int.");
+			}	
 		}
 		if(stack.top.next ==null){
 				return stack.peek();

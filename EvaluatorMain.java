@@ -1,6 +1,7 @@
 public class EvaluatorMain{
 	public static void main(String [] args){
-		Evaluator evaluator = new Evaluator();
-		evaluator.evaluate("1","2","+","3","/");
+		Evaluator eval = new Evaluator();
+		System.out.println(eval.evaluate(6, 4, '+', 2, 3, '+', '/',4,2,'-','*'));
 	}
 }
+
